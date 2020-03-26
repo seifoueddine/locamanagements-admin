@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularTokenModule } from 'angular-token';
 
 @NgModule({
   imports: [
@@ -18,8 +20,42 @@ import { LoginComponent } from './login/login.component';
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    HttpClientModule,
+    AngularTokenModule.forRoot({
+      apiBase:                   'http://localhost:3000',
+      apiPath:                    'api/v1',
+      
+      signInPath:                 'auth/sign_in',
+      signInRedirect:             null,
+      signInStoredUrlStorageKey:  null,
+
+      signOutPath:                'auth/sign_out',
+      validateTokenPath:          'auth/validate_token',
+      signOutFailedValidate:      false,
+
+      registerAccountPath:        'auth',
+      deleteAccountPath:          'auth',
+      registerAccountCallback:    window.location.href,
+
+      updatePasswordPath:         'auth',
+      resetPasswordPath:          'auth/password',
+      resetPasswordCallback:      window.location.href,
+
+      oAuthBase:                  window.location.origin,
+      oAuthPaths: {
+          github:                 'auth/github'
+      },
+      oAuthCallbackPath:          'oauth_callback',
+      oAuthWindowType:            'newWindow',
+      oAuthWindowOptions:         null,
+
+      
+    }),
+    ReactiveFormsModule,
+    FormsModule
   ],
+  providers:    [ AngularTokenModule ],
   declarations: [LoginComponent]
 })
 export class LoginModule {}
