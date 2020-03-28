@@ -8,6 +8,7 @@ import { UsersService } from 'src/app/services/users.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpResponse } from '@angular/common/http';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @Component({
   selector: 'app-users',
@@ -83,7 +84,7 @@ export class UsersComponent implements OnInit {
 
 
   goToNewUser() {
-   // this.dialog.open(UsersFormComponent);
+    this.dialog.open(UserFormComponent);
   }
 
   goToUser(){
