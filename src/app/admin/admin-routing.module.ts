@@ -12,6 +12,10 @@ const routes: Routes = [
         redirectTo: 'dashboard'
       },
       {
+        path: 'users',
+        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+      },
+      {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       },

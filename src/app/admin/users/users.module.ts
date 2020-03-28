@@ -8,6 +8,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
 
 @NgModule({
   imports: [
@@ -18,8 +25,15 @@ import { UsersComponent } from './users.component';
     MatCardModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    CommonModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatCheckboxModule
   ],
-  declarations: [UsersComponent]
+  declarations: [UsersComponent],
 })
 export class UsersModule {}
