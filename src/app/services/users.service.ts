@@ -32,9 +32,9 @@ export class UsersService {
    * @param direction the sort direction
    * @param size the page size
    */
-  getUsers(page = 0, active = 'name', direction = 'desc', size?: number): Observable<any> {
+  getUsers(page = 1, active = 'created_at', direction = 'desc', size= 10): Observable<any> {
  
-    const req = this.serviceUrl + `?page=${page}&per_page=${size}&sort=${active},${direction}`;
+    const req = this.serviceUrl + `?page=${page}&per_page=${size}&order=${active}&direction=${direction}`;
     return this.http.get(req, { observe: 'response' });
   }
   /**
