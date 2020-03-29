@@ -13,7 +13,7 @@ export const environment = {
   SUPPORT_MAIL: 'test@email.com',
   ENDPOINTS: {
     USERS_PATH: apiVersion + '/users',
-  
+    SLUGS_PATH: apiVersion + '/slugs'
   },
 
 
