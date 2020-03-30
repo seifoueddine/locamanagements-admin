@@ -16,6 +16,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UserFormComponent } from './user-form/user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -38,7 +39,8 @@ import { UserFormComponent } from './user-form/user-form.component';
     MatInputModule,
     MatCheckboxModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   declarations: [UsersComponent, UserFormComponent],
 })

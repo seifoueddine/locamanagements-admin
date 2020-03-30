@@ -25,7 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatMenuModule,
     MatListModule,
-    ReactiveFormsModule
+   // ReactiveFormsModule
     
   ],
   declarations: [LayoutComponent, TopNavComponent, SideNavComponent]
