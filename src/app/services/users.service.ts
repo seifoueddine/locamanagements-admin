@@ -20,7 +20,7 @@ export class UsersService {
   private serviceUrl = environment.ENDPOINTS.USERS_PATH;
   constructor(private http: HttpClient) {}
 
-  addUser(user: Users): Observable<Users> {
+  addUser(user: any): Observable<Users> {
     return this.http.post<Users>(this.serviceUrl, user, httpOptions);
   }
 

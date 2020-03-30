@@ -82,7 +82,10 @@ export class UsersComponent implements OnInit {
 
 
   goToNewUser() {
-    this.dialog.open(UserFormComponent);
+    const dialogResp = this.dialog.open(UserFormComponent);
+    dialogResp.afterClosed().subscribe(res => {
+      this.getUsers();
+    });
   }
 
   goToUser(){

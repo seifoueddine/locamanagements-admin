@@ -21,8 +21,8 @@ export class SlugsService {
   private serviceUrl = environment.ENDPOINTS.SLUGS_PATH;
   constructor(private http: HttpClient) {}
 
-  addUser(slug: Slugs): Observable<Slugs> {
-    return this.http.post<Slugs>(this.serviceUrl, slug, httpOptions);
+  addSlug(slug: Slugs): Observable<Slugs> {
+    return this.http.post<any>(this.serviceUrl, slug, httpOptions);
   }
 
 
@@ -42,7 +42,7 @@ export class SlugsService {
     * this method call the server to get all the structure by ID
     * @param slugId
     */
-  getUserById(slugId: number): Observable<Slugs> {
+  getSlugById(slugId: number): Observable<Slugs> {
     const req = this.serviceUrl + `/${slugId}`;
     console.log(req);
     return this.http.get<Slugs>(req);
@@ -52,7 +52,7 @@ export class SlugsService {
    * update the contact base informations
    * @param slug
    */
-  updateUser(slug: Slugs): Observable<Slugs> {
+  updateSlug(slug: any): Observable<Slugs> {
     const req = this.serviceUrl + `/${slug.id}`;
     console.log(req);
     console.log(slug);
