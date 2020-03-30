@@ -10,8 +10,8 @@
           <input matInput placeholder="Slug" formControlName="name" required>
         </mat-form-field>
         <div>
-          <button mat-button type="submit" [disabled]=!isLinear (click)="addNewSlug($event)">Add new slug </button>
-          <button mat-button  matStepperNext [disabled]=isLinear>Next</button>
+          <button mat-stroked-button color="primary" type="submit" [disabled]=!isLinear (click)="addNewSlug($event)" style="margin-right: 5px;">Add new slug </button>
+          <button mat-stroked-button color="primary" matStepperNext [disabled]=isLinear>Next</button>
         </div>
       </form>
     </mat-step>
@@ -30,18 +30,10 @@
 
         <div>
           <!-- <button mat-button matStepperPrevious>Back</button> -->
-          <button mat-button (click)="addNewUser($event)" >Save new user</button>
+          <button  mat-stroked-button color="primary" mat-stroked-button (click)="addNewUser($event)" >Save new user</button>
         </div>
     </form> 
     </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      You are now done.
-      <div>
-        <!-- <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button> -->
-        <button mat-button >Reset</button>
-      </div>
-    </mat-step>
+ 
 
   </mat-horizontal-stepper>

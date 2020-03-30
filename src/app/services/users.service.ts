@@ -38,7 +38,7 @@ export class UsersService {
     return this.http.get(req, { observe: 'response' });
   }
   /**
-    * this method call the server to get all the structure by ID
+    * this method call the server to get the user by ID
     * @param userId
     */
   getUserById(userId: number): Observable<Users> {
@@ -48,7 +48,7 @@ export class UsersService {
   }
 
   /**
-   * update the contact base informations
+   * update the user informations
    * @param user
    */
   updateUser(user: Users): Observable<Users> {
@@ -58,6 +58,11 @@ export class UsersService {
     return this.http.put<Users>(req, user);
   }
 
+
+
+  deleteUser(userId: number): Observable<void> {
+    return this.http.delete<void>(this.serviceUrl + `/${userId}`);
+  }
 
 
 }

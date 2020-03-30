@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { Users } from 'src/app/shared/models/users.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
   active = 'id';
   direction = 'desc';
   pageIndex = 1;
-  displayedColumns = ['id', 'name', 'email', 'created_at','slug_id'];
+  displayedColumns = ['id', 'name', 'email', 'created_at','slug_id', 'action'];
   dataSource = new MatTableDataSource<Users>();
   elementsLength = 0;
   pageSize = 10;
@@ -27,10 +27,12 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  
+  openDialogForConfirmation(templateRef: TemplateRef<any>) {
+    this.dialog.open(templateRef);
+  }
   
   constructor(private router: Router, private usersService: UsersService, private snackBar: MatSnackBar, private dialog: MatDialog) { }
-
+  
   ngOnInit() {
     this.getUsers();
   }
@@ -90,6 +92,18 @@ export class UsersComponent implements OnInit {
 
   goToUser(){
 
+  }
+
+
+  deleteUser(user: Users) {
+    this.usersService.deleteUser(user.id).subscribe(() => {
+      this.snackBar.open('Delete user', '', { verticalPosition: 'top',  horizontalPosition: 'right', duration: 4000});
+      this.getUsers();
+    }, err => {
+     
+        this.snackBar.open(err, 'close', { verticalPosition: 'top',  horizontalPosition: 'right'});
+     
+    });
   }
 
 

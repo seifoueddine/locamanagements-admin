@@ -34,6 +34,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -42,14 +43,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
   imports: [
     CommonModule,
     UsersRoutingModule,
-    MatGridListModule,
     FlexLayoutModule,
     MatCardModule,
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    CommonModule,
-    MatTableModule,
     MatFormFieldModule,
     MatPaginatorModule,
     MatSortModule,
@@ -61,12 +59,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
     MatAutocompleteModule,
-    MatButtonModule,
     MatButtonToggleModule,
     MatBadgeModule,
     MatStepperModule,
@@ -74,8 +67,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatProgressSpinnerModule,
     MatRadioModule,
     MatSliderModule,
-    MatSnackBarModule,
-    MatIconModule,
     MatExpansionModule,
     MatChipsModule,
     MatBottomSheetModule,
@@ -84,7 +75,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTabsModule
+    MatTabsModule,
+    MatMenuModule
   ],
   declarations: [UsersComponent, UserFormComponent],
 })
