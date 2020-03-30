@@ -16,8 +16,6 @@ import { UserFormComponent } from './user-form/user-form.component';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  choices: string[] = ['Active', 'Inactive'];
-  current_selected: any;
   active = 'id';
   direction = 'desc';
   pageIndex = 1;
@@ -28,7 +26,7 @@ export class UsersComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  resValue = false;
+
   
   
   constructor(private router: Router, private usersService: UsersService, private snackBar: MatSnackBar, private dialog: MatDialog) { }

@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+    margin-top:20px; 
+}
+ 
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+}
+
+.sortable tr {
+    cursor: pointer;
+}
