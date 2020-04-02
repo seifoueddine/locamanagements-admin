@@ -15,6 +15,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SlugsComponent } from './slugs.component';
 import { SlugsRoutingModule } from './slugs-routing.module';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -37,7 +38,8 @@ import { SlugsRoutingModule } from './slugs-routing.module';
     MatInputModule,
     MatCheckboxModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
   ],
   declarations: [SlugsComponent],
 })

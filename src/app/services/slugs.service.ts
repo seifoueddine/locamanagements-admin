@@ -21,7 +21,7 @@ export class SlugsService {
   private serviceUrl = environment.ENDPOINTS.SLUGS_PATH;
   constructor(private http: HttpClient) {}
 
-  addSlug(slug: Slugs): Observable<Slugs> {
+  addSlug(slug: any): Observable<Slugs> {
     return this.http.post<any>(this.serviceUrl, slug, httpOptions);
   }
 
@@ -59,6 +59,9 @@ export class SlugsService {
     return this.http.put<Slugs>(req, slug);
   }
 
+  deleteSlug(slugId: number): Observable<void> {
+    return this.http.delete<void>(this.serviceUrl + `/${slugId}`);
+  }
 
 
 }

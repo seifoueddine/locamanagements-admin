@@ -18,6 +18,48 @@
             {{slug.name?.length > 35 ? (slug.name | slice:0:30 ) + '...': slug.name }} </td>
         </ng-container>
 
+
+        <ng-container matColumnDef="action">
+          <th class="fixWidth" mat-header-cell *matHeaderCellDef>
+            <!-- <h6>{{'general.action'  | translate | capitalize }} </h6> -->
+            <h6>ACTIONS</h6> 
+          </th>
+          <td class="fixWidth" mat-cell *matCellDef="let slug;">
+            <button mat-icon-button mat-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()"><i
+                class="material-icons">
+                more_vert
+              </i></button>
+            <mat-menu #menu="matMenu">
+ 
+              <button mat-menu-item (click)="openDialogForConfirmation(confirmation)">
+                <mat-icon color='warn' aria-label="Delete slug"
+                  matTooltip="Delete slug">delete</mat-icon>
+                Delete slug
+              </button>
+            </mat-menu>
+  
+            <!-- Dialog confirmation template -->
+            <ng-template #confirmation>
+              <h2 matDialogTitle>Confirmation !</h2>
+              <mat-dialog-content>
+                <!-- <p>{{'documents.removeConfirmation'  | translate | capitalize }}</p> -->
+                <p>Are you sure to delete this slug ?</p> 
+              </mat-dialog-content>
+              <mat-dialog-actions align="center">
+                <button mat-button matDialogClose color="warn"
+                (click)="deleteSlug(slug)">Remove</button>
+                <button mat-button matDialogClose color="primary"
+                  cdkFocusInitial>No</button>
+              </mat-dialog-actions>
+            </ng-template>
+            <!-- Dialog confirmation template -->
+          </td>
+        </ng-container>
+
+
+
+
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   
         <tr mat-row *matRowDef="let slug; columns: displayedColumns;" (click)="viewSlug(slug)"></tr>

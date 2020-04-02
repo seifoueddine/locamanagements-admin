@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Slugs } from 'src/app/shared/models/slugs.model';
 import { MatSort } from '@angular/material/sort';
@@ -18,7 +18,7 @@ export class SlugsComponent implements OnInit {
   active = 'id';
   direction = 'desc';
   pageIndex = 1;
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'name', 'action'];
   dataSource = new MatTableDataSource<Slugs>();
   elementsLength = 0;
   pageSize = 10;
@@ -26,6 +26,9 @@ export class SlugsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  openDialogForConfirmation(templateRef: TemplateRef<any>) {
+    this.dialog.open(templateRef);
+  }
   
   constructor(private router: Router, private slugsService: SlugsService, private snackBar: MatSnackBar,
               private dialog: MatDialog) { }
@@ -79,6 +82,15 @@ export class SlugsComponent implements OnInit {
             
               }
 
-
+              deleteSlug(slug: Slugs) {
+                this.slugsService.deleteSlug(slug.id).subscribe(() => {
+                  this.snackBar.open('Delete slug', '', { verticalPosition: 'top',  horizontalPosition: 'right', duration: 4000});
+                  this.getSlugs();
+                }, err => {
+                 
+                    this.snackBar.open(err, 'close', { verticalPosition: 'top',  horizontalPosition: 'right'});
+                 
+                });
+              }
 
 }
