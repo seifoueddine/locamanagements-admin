@@ -11,6 +11,7 @@ export const environment = {
   MAX_FILE_SIZE: 35,
   MAX_FILE_SIZE_ATTACHED: 16,
   SUPPORT_MAIL: 'test@email.com',
+  URL_PATH: url,
   ENDPOINTS: {
     USERS_PATH: apiVersion + '/users',
     SLUGS_PATH: apiVersion + '/slugs'

@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpResponse } from '@angular/common/http';
 import { UserFormComponent } from './user-form/user-form.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-users',
@@ -19,11 +20,11 @@ export class UsersComponent implements OnInit {
   active = 'id';
   direction = 'desc';
   pageIndex = 1;
-  displayedColumns = ['id', 'name', 'email', 'created_at','slug_id', 'action'];
+  displayedColumns = ['id', 'avatar', 'name', 'email', 'created_at','slug_id', 'action'];
   dataSource = new MatTableDataSource<Users>();
   elementsLength = 0;
   pageSize = 10;
-
+  urlForAvatar = environment.URL_PATH;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 

@@ -11,6 +11,15 @@
           </th>
           <td mat-cell *matCellDef="let user"> {{user.id}} </td>
         </ng-container>
+
+        <ng-container matColumnDef="avatar">
+          <th mat-header-cell *matHeaderCellDef >
+            <h6>AVATAR </h6>
+          </th>
+          <td mat-cell *matCellDef="let user"> <img *ngIf="user.avatar?.url" [src]=" urlForAvatar + user.avatar.url">  </td>
+        </ng-container>
+
+
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             <h6>NAME </h6>
