@@ -18,15 +18,26 @@
     <mat-step [stepControl]="userFormGroup">
       <ng-template matStepLabel>user informations</ng-template>
       <form [formGroup]="userFormGroup">
-        <mat-form-field>
-          <input matInput placeholder="name" formControlName="name" required>
-        </mat-form-field>
-        <mat-form-field>
+
+        <div class="mb20" fxLayout="row" fxLayoutGap="20px">
+          <mat-form-field fxFlex='33.33'>
+            <input matInput placeholder="name" formControlName="name" required>
+          </mat-form-field>
+          <mat-form-field fxFlex='33.33'>
             <input matInput placeholder="email" type="email" formControlName="email" required>
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field fxFlex='33.33'>
             <input matInput placeholder="password" type="password" formControlName="password" required>
           </mat-form-field>
+        </div>
+
+        <div class="mb20" fxLayout="row" fxLayoutGap="20px">
+          <div fxFlex='33.33'>
+            <input type="file" name="avatar" (change)="onFileSelect($event)" />
+          </div>
+         
+        </div>
+
 
         <div>
           <!-- <button mat-button matStepperPrevious>Back</button> -->

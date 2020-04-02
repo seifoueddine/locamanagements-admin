@@ -73,7 +73,8 @@ createUserForm(slug) {
     name: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
-    slug_id: [slug.id]
+    slug_id: [slug.id],
+    avatar: [null]
   });
 }
 
@@ -81,14 +82,14 @@ createUserForm(slug) {
 addNewUser(event) {
   event.preventDefault();
   if (this.userFormGroup.valid) {
-
-    this.userService.addUser({
-      name: this.userFormGroup.value.name,
-      email: this.userFormGroup.value.email,
-      password: this.userFormGroup.value.password,
-      slug_id: this.userFormGroup.value.slug_id
-  
-  }).subscribe(
+    const formData = new FormData();
+    formData.append('avatar', this.userFormGroup.value.avatar);
+    formData.append('name', this.userFormGroup.value.name);
+    formData.append('email', this.userFormGroup.value.email);
+    formData.append('password', this.userFormGroup.value.password);
+    formData.append('slug_id', this.userFormGroup.value.slug_id);
+    this.userService.addUser(formData
+  ).subscribe(
     res =>  {console.log(res)
 
         this.snackBar.open('new user added ' , '', { verticalPosition: 'top', horizontalPosition: 'right',duration: 4000, });
@@ -101,6 +102,13 @@ addNewUser(event) {
       }
   );
 
+  }
+}
+
+onFileSelect(event) {
+  if (event.target.files.length > 0) {
+    const file = event.target.files[0];
+    this.userFormGroup.get('avatar').setValue(file);
   }
 }
 

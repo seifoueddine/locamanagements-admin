@@ -6,4 +6,5 @@ export class Users {
     created_at: Date;
     updated_at: Date;
     password: String;
+    avatar: any;
 }
