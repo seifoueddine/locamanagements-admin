@@ -35,6 +35,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -76,7 +77,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatDatepickerModule,
     MatNativeDateModule,
     MatTabsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSelectModule
   ],
   declarations: [UsersComponent, UserFormComponent],
 })

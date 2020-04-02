@@ -32,6 +32,13 @@
         </div>
 
         <div class="mb20" fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field fxFlex='33.33'>
+              <mat-select placeholder="role" formControlName="role" name="role" required>
+                <mat-option *ngFor="let role of  roles" [value]="role.value">
+                  {{role.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
           <div fxFlex='33.33'>
             <input type="file" name="avatar" (change)="onFileSelect($event)" />
           </div>

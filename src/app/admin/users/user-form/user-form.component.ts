@@ -19,6 +19,13 @@ export class UserFormComponent implements OnInit {
   isLinear = true;
   slugFormGroup: FormGroup;
   userFormGroup: FormGroup;
+
+  roles = [
+    {value: 'super_admin', viewValue: 'super admin'},
+    {value: 'agent_admin', viewValue: 'agent admin'},
+    {value: 'admin', viewValue: 'admin'},
+    {value: 'agent', viewValue: 'agent'}
+  ];
   
   constructor(private router: Router, private userService: UsersService, private formBuilder: FormBuilder,
     private snackBar: MatSnackBar, public dialogRef: MatDialogRef<UserFormComponent>,
@@ -73,6 +80,7 @@ createUserForm(slug) {
     name: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
+    role: ['', Validators.required],
     slug_id: [slug.id],
     avatar: [null]
   });
@@ -88,6 +96,7 @@ addNewUser(event) {
     formData.append('email', this.userFormGroup.value.email);
     formData.append('password', this.userFormGroup.value.password);
     formData.append('slug_id', this.userFormGroup.value.slug_id);
+    formData.append('role', this.userFormGroup.value.role);
     this.userService.addUser(formData
   ).subscribe(
     res =>  {console.log(res)
