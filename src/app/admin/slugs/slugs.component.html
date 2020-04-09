@@ -15,7 +15,7 @@
             NAME 
           </th>
           <td mat-cell *matCellDef="let slug">
-            {{slug.name?.length > 35 ? (slug.name | slice:0:30 ) + '...': slug.name }} </td>
+            {{slug.name?.length > 35 ? (slug.name | slice:0:30 ) + '...': slug.attributes.Name }} </td>
         </ng-container>
 
 

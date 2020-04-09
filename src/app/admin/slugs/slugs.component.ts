@@ -42,9 +42,10 @@ export class SlugsComponent implements OnInit {
             
               getSlugs = () => {
                 this.slugsService.getSlugs(undefined, undefined, undefined, undefined)
-                  .subscribe((res: HttpResponse<Slugs[]>) => {
+                  .subscribe((res: HttpResponse<any>) => {
                     this.elementsLength = +res.headers.get('X-Total-Count');
-                    this.dataSource.data = res.body;
+                    const resp =  res.body;
+                    this.dataSource.data = resp.data;
                   }, error => {
                     this.snackBar.open(error.error.message, 'close', { verticalPosition: 'top',  horizontalPosition: 'right' });
                   });
@@ -55,9 +56,10 @@ export class SlugsComponent implements OnInit {
                 this.direction = event.direction;
                 this.pageIndex = 1;
                 this.slugsService.getSlugs(this.pageIndex, this.active, this.direction, undefined)
-                  .subscribe((res: HttpResponse<Slugs[]>) => {
+                  .subscribe((res: HttpResponse<any>) => {
                     this.elementsLength = +res.headers.get('X-Total-Count');
-                    this.dataSource.data = res.body;
+                    const resp =  res.body;
+                    this.dataSource.data = resp.data;
                   }, error => {
                     this.snackBar.open(error.error.message, 'close', { verticalPosition: 'top', horizontalPosition: 'right' });
                   });
@@ -67,9 +69,10 @@ export class SlugsComponent implements OnInit {
               getUpdate(event) {
                 this.pageIndex = event.pageIndex + 1;
                 this.slugsService.getSlugs(this.pageIndex, this.active, this.direction, undefined)
-                  .subscribe((res: HttpResponse<Slugs[]>) => {
+                  .subscribe((res: HttpResponse<any>) => {
                     this.elementsLength = +res.headers.get('X-Total-Count');
-                    this.dataSource.data = res.body;
+                    const resp =  res.body;
+                    this.dataSource.data = resp.data;
                   }, error => {
                     this.snackBar.open(error.error.message, 'close', { verticalPosition: 'top',  horizontalPosition: 'right'});
                   });
