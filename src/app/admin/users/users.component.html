@@ -16,7 +16,7 @@
           <th mat-header-cell *matHeaderCellDef >
             <mat-icon class="sidenav-icon">person</mat-icon> 
           </th>
-          <td mat-cell *matCellDef="let user"> <img *ngIf="user.avatar?.url" [src]=" urlForAvatar + user.avatar.url">  </td>
+          <td mat-cell *matCellDef="let user"> <img *ngIf="user.attributes.Avatar?.url" [src]=" urlForAvatar + user.attributes.Avatar.url">  </td>
         </ng-container>
 
 
@@ -25,14 +25,14 @@
            NAME 
           </th>
           <td mat-cell *matCellDef="let user">
-            {{user.name?.length > 35 ? (user.name | slice:0:30 ) + '...': user.name }} </td>
+            {{user.name?.length > 35 ? (user.name | slice:0:30 ) + '...': user.attributes.Name }} </td>
         </ng-container>
         <ng-container matColumnDef="email">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
              EMAIL
           </th>
           <td mat-cell *matCellDef="let user" >
-            {{user.email ? ((user.email.length > 35 )? (user.email | slice:0:30 ) + '...': user.email) : '' }}
+            {{user.attributes.Email ? ((user.attributes.Email.length > 35 )? (user.attributes.Email | slice:0:30 ) + '...': user.attributes.Email) : '' }}
           </td>
         </ng-container>
   
@@ -41,21 +41,21 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
              CREATED AT 
           </th>
-          <td mat-cell *matCellDef="let user"> {{user.created_at | date: 'dd/MM/yyyy'}} </td>
+          <td mat-cell *matCellDef="let user"> {{user.attributes.CreatedAt | date: 'dd/MM/yyyy'}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="slug_id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-               SLUG ID 
+          <ng-container matColumnDef="slug_name">
+            <th mat-header-cell *matHeaderCellDef >
+               SLUG NAME 
             </th>
-            <td mat-cell *matCellDef="let user"> {{user.slug_id}} </td>
+            <td mat-cell *matCellDef="let user"> {{getSlugName(user.attributes.SlugId)}} </td>
           </ng-container>
 
           <ng-container matColumnDef="role">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
                ROLE 
             </th>
-            <td mat-cell *matCellDef="let user"> {{user?.role}} </td>
+            <td mat-cell *matCellDef="let user"> {{user?.attributes.Role}} </td>
           </ng-container>
 
 
