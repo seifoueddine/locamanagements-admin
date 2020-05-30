@@ -1,5 +1,16 @@
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
+  </div>
+  <div class="mb10" fxFlex="48" fxFlex.lt-lg="98">
+    <app-stat [bgClass]="'agency'" [icon]="'domain'" [count]="stats?.agencies" label="Agencies"></app-stat>
+  </div>
+
+  <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
+  </div>
+</div>
+
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+  <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
     <app-stat [bgClass]="'danger'" [icon]="'supervised_user_circle'" [count]="stats?.admin_users" label="Admin users"></app-stat>
   </div>
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
@@ -12,6 +23,8 @@
     <app-stat [bgClass]="'info'" [icon]="'attach_money'" [count]="stats?.properties_sell" label="properties to sell"></app-stat>
   </div>
 </div>
+
+
 
 <!-- <div class="mt20" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayout.lt-md="column" fxLayoutGap="20px">
   <mat-card fxFlex *ngFor="let item of places">
