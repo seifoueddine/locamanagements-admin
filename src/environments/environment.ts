@@ -14,7 +14,8 @@ export const environment = {
   URL_PATH: url,
   ENDPOINTS: {
     USERS_PATH: apiVersion + '/users',
-    SLUGS_PATH: apiVersion + '/slugs'
+    SLUGS_PATH: apiVersion + '/slugs',
+    STATS: apiVersion + '/admin_dashboard/stats_count'
   },
 
 

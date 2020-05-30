@@ -1,19 +1,19 @@
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
-    <app-stat [bgClass]="'danger'" [icon]="'bookmarks'" [count]="13" [label]="'New Tickets!'"></app-stat>
+    <app-stat [bgClass]="'danger'" [icon]="'supervised_user_circle'" [count]="stats?.admin_users" label="Admin users"></app-stat>
   </div>
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
-    <app-stat [bgClass]="'warn'" [icon]="'view_list'" [count]="12" [label]="'New Task!'"></app-stat>
+    <app-stat [bgClass]="'warn'" [icon]="'supervisor_account'" [count]="stats?.agent_users" label="Agent users"></app-stat>
   </div>
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
-    <app-stat [bgClass]="'success'" [icon]="'shopping_cart'" [count]="124" [label]="'New Orders!'"></app-stat>
+    <app-stat [bgClass]="'success'" [icon]="'home'" [count]="stats?.properties_rent" label="properties to rent"></app-stat>
   </div>
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
-    <app-stat [bgClass]="'info'" [icon]="'contact_support'" [count]="13" [label]="'New Tickets!'"></app-stat>
+    <app-stat [bgClass]="'info'" [icon]="'attach_money'" [count]="stats?.properties_sell" label="properties to sell"></app-stat>
   </div>
 </div>
 
-<div class="mt20" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayout.lt-md="column" fxLayoutGap="20px">
+<!-- <div class="mt20" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayout.lt-md="column" fxLayoutGap="20px">
   <mat-card fxFlex *ngFor="let item of places">
     <img mat-card-image [src]="item.imgSrc">
     <mat-card-header style="justify-content: center">
@@ -31,4 +31,4 @@
       </button>
     </mat-card-actions>
   </mat-card>
-</div>
+</div> -->

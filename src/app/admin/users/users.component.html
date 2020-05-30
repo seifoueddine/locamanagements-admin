@@ -44,8 +44,8 @@
           <td mat-cell *matCellDef="let user"> {{user.attributes.CreatedAt | date: 'dd/MM/yyyy'}} </td>
         </ng-container>
 
-          <ng-container matColumnDef="slug_name">
-            <th mat-header-cell *matHeaderCellDef >
+          <ng-container matColumnDef="slug_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header >
                SLUG NAME 
             </th>
             <td mat-cell *matCellDef="let user"> {{getSlugName(user.attributes.SlugId)}} </td>

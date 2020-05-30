@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from 'src/app/services/dashboard.service';
+import { HttpResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Place {
   imgSrc: string;
@@ -15,8 +18,10 @@ interface Place {
 })
 export class HomeComponent implements OnInit {
   places: Array<Place> = [];
-  constructor() {}
+  stats: any;
+  constructor(private dashboardService: DashboardService, private snackBar: MatSnackBar) {}
   ngOnInit() {
+    this.getStats();
     this.places = [
       {
         imgSrc: 'assets/images/card-1.jpg',
@@ -44,4 +49,23 @@ export class HomeComponent implements OnInit {
       }
     ];
   }
+
+
+  getStats = () => {
+    this.dashboardService.getStats()
+      .subscribe((res: HttpResponse<any>) => {
+       
+        const resp =  res.body;
+        this.stats = resp.stats;
+console.log(resp);
+console.log(this.stats);
+
+
+      }, error => {
+        this.snackBar.open(error.error.message, 'close', { verticalPosition: 'top',  horizontalPosition: 'right' });
+      });
+  }
+
+
+
 }

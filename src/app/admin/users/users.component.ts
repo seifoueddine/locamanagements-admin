@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
   active = 'id';
   direction = 'desc';
   pageIndex = 1;
-  displayedColumns = ['avatar', 'name', 'email', 'created_at', 'slug_name', 'role', 'action'];
+  displayedColumns = ['avatar', 'name', 'email', 'created_at', 'slug_id', 'role', 'action'];
   dataSource = new MatTableDataSource<Users>();
   elementsLength = 0;
   pageSize = 10;
