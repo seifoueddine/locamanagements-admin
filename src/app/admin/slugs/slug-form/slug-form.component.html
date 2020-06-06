@@ -1,0 +1,74 @@
+<div class="container">
+
+    <h5 *ngIf="data"> <span class="name-text">
+        Edit slug</span></h5>
+  
+    <form [formGroup]="slugFormGroup" (submit)="updateSlug($event)" class="form">
+      <div fxLayout="row" fxLayoutAlign="center center" >
+        <mat-form-field >
+          <input matInput placeholder="name" required formControlName="name"
+            #focus>
+          <mat-error *ngIf="!name.valid || name.touched">Name<strong>required</strong> </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center center" >
+        <mat-form-field >
+          <input matInput placeholder="wilaya" required formControlName="wilaya"
+            #focus>
+          <mat-error *ngIf="!wilaya.valid || wilaya.touched">wilaya <strong>required</strong> </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center center" >
+        <mat-form-field >
+          <input matInput placeholder="city" required formControlName="city"
+            #focus>
+          <mat-error *ngIf="!city.valid || city.touched">City <strong>required</strong> </mat-error>
+        </mat-form-field>
+      </div>
+     
+
+ <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="">
+       <mat-form-field >
+          <mat-select placeholder="Subscription end"
+            formControlName="subscription_type">
+            <mat-option value="1">
+              Free Trailer
+            </mat-option>
+            <mat-option value="2">
+             Silver
+            </mat-option>
+            <mat-option value="3">
+             Gold
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div> 
+
+      
+
+ <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="">
+    <mat-form-field>
+    <input matInput required readonly [matDatepicker]="picker" formControlName="subscription_end" 
+    placeholder="subscription_end">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</div>
+
+
+  
+  <br><br><br>
+      <div fxLayout="row" fxLayoutAlign="row center" fxLayoutGap="">
+        <div class="form-element">
+          <button mat-raised-button color="primary" type="submit"  class="button">Submit</button>
+        </div>
+        <div class="form-element">
+       
+          <button  mat-dialog-close mat-raised-button color="warn" class="button">Cancel</button>
+        </div>
+      </div>
+    </form>
+  
+  </div>

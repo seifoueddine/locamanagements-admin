@@ -26,12 +26,19 @@
     background: linear-gradient(60deg, #ffa726, #fb8c00);
   }
   &.success {
-    background: linear-gradient(60deg, #66bb6a, #43a047);
+    background: linear-gradient(60deg, #666ebb, #1e2ebd);
   }
   &.info {
-    background: linear-gradient(60deg, #26c6da, #00acc1);
+    background: linear-gradient(60deg, #5ec8d6, #00acc1);
   }
   &.agency {
     background: linear-gradient(60deg, #b226e9, #a400e6);
   }
+  &.agency_free {
+    background: linear-gradient(60deg, #e4435e, #e60026);
+  }
+   &.agency_payed {
+    background: linear-gradient(60deg, #66bb6a, #28a12e);
+  }
+
 }

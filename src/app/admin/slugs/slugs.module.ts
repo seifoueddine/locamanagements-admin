@@ -16,6 +16,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SlugsComponent } from './slugs.component';
 import { SlugsRoutingModule } from './slugs-routing.module';
 import { MatMenuModule } from '@angular/material/menu';
+import { SlugFormComponent } from './slug-form/slug-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -39,8 +44,12 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCheckboxModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule, ReactiveFormsModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatNativeDateModule
   ],
-  declarations: [SlugsComponent],
+  declarations: [SlugsComponent, SlugFormComponent],
 })
 export class SlugsModule {}
