@@ -1,11 +1,13 @@
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
+    <app-stat [bgClass]="'agency_free'" [icon]="'domain'" [count]="stats?.agencies_free" label="Agencies with free DEMO"></app-stat>
   </div>
   <div class="mb10" fxFlex="48" fxFlex.lt-lg="98">
     <app-stat [bgClass]="'agency'" [icon]="'domain'" [count]="stats?.agencies" label="Agencies"></app-stat>
   </div>
 
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
+    <app-stat [bgClass]="'agency_payed'" [icon]="'domain'" [count]="stats?.agencies - stats?.agencies_free" label="Subscribed agencies "></app-stat>
   </div>
 </div>
 
