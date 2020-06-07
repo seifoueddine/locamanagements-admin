@@ -1,35 +1,49 @@
 <div class="container">
-
+  <div class="row" >
+    <div class="col-12 text-center">
     <h5 *ngIf="data"> <span class="name-text">
         Edit slug</span></h5>
+        </div>
+        </div>
   
     <form [formGroup]="slugFormGroup" (submit)="updateSlug($event)" class="form">
-      <div fxLayout="row" fxLayoutAlign="center center" >
+
+        <div class="row" >
+     <div class="col-12">
         <mat-form-field >
           <input matInput placeholder="name" required formControlName="name"
             #focus>
           <mat-error *ngIf="!name.valid || name.touched">Name<strong>required</strong> </mat-error>
         </mat-form-field>
       </div>
+  
 
-      <div fxLayout="row" fxLayoutAlign="center center" >
-        <mat-form-field >
-          <input matInput placeholder="wilaya" required formControlName="wilaya"
-            #focus>
-          <mat-error *ngIf="!wilaya.valid || wilaya.touched">wilaya <strong>required</strong> </mat-error>
-        </mat-form-field>
-      </div>
+     <div class="col-12">
+      <ng-select [items]="wilayas" bindLabel="name" bindValue="code" 
+      (change)="selectWilaya($event)" formControlName="wilaya">
+  </ng-select>
 
-      <div fxLayout="row" fxLayoutAlign="center center" >
-        <mat-form-field >
-          <input matInput placeholder="city" required formControlName="city"
-            #focus>
-          <mat-error *ngIf="!city.valid || city.touched">City <strong>required</strong> </mat-error>
-        </mat-form-field>
-      </div>
+
+
+    <!-- <mat-error *ngIf="slugFormGroup.get('wilaya').errors?.required">wilaya <strong>required</strong> </mat-error> -->
+
+     </div>
+
+<div class="col-12">
+  
+  <ng-select  [items]="communesSelected"  bindLabel="name" bindValue="id"
+  (change)="selectCommune($event)" formControlName="city">
+</ng-select>
+  <!-- <mat-error *ngIf="slugFormGroup.get('commune').errors?.required">City <strong>required</strong> </mat-error> -->
+     </div>
+
+ 
+
+   
+
      
 
- <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="">
+      <div class="col-12">
        <mat-form-field >
           <mat-select placeholder="Subscription end"
             formControlName="subscription_type">
@@ -48,7 +62,7 @@
 
       
 
- <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="">
+      <div class="col-12">
     <mat-form-field>
     <input matInput required readonly [matDatepicker]="picker" formControlName="subscription_end" 
     placeholder="subscription_end">
@@ -57,17 +71,15 @@
     </mat-form-field>
 </div>
 
-
+</div>
   
   <br><br><br>
-      <div fxLayout="row" fxLayoutAlign="row center" fxLayoutGap="">
-        <div class="form-element">
-          <button mat-raised-button color="primary" type="submit"  class="button">Submit</button>
-        </div>
-        <div class="form-element">
-       
+     
+      <div class="row">
+      <div class="col-12 text-center">
+          <button mat-raised-button color="primary" type="submit"  class="button">Submit</button> {{" "}}
           <button  mat-dialog-close mat-raised-button color="warn" class="button">Cancel</button>
-        </div>
+      </div>
       </div>
     </form>
   

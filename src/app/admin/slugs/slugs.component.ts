@@ -10,6 +10,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { HttpResponse } from '@angular/common/http';
 import { SlugFormComponent } from './slug-form/slug-form.component';
 import * as moment from 'moment';
+import { wilayasCommunes } from 'src/environments/wilayasCommunes';
+//import wilayas from 'src/app/shared/json-data/wilayas.json';
 @Component({
   selector: 'app-slugs',
   templateUrl: './slugs.component.html',
@@ -23,16 +25,20 @@ export class SlugsComponent implements OnInit {
   dataSource = new MatTableDataSource<Slugs>();
   elementsLength = 0;
   pageSize = 10;
-
+  wilayasList: any[];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  communesList: any;
 
   openDialogForConfirmation(templateRef: TemplateRef<any>) {
     this.dialog.open(templateRef);
   }
 
   constructor(private router: Router, private slugsService: SlugsService, private snackBar: MatSnackBar,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog) {
+      this.wilayasList = wilayasCommunes.WILAYAS;
+      this.communesList = wilayasCommunes.COMMUNES;
+     }
 
 
 
@@ -127,6 +133,23 @@ export class SlugsComponent implements OnInit {
     let m = moment(subscription_end);
     let days = m.diff(date, 'days');
     return  +days;
+  }
+
+
+  getWilayaName(wilaya_id){
+    if(wilaya_id){
+      let type = this.wilayasList.find(x => x.id === wilaya_id);
+      return type.name
+    }
+
+  }
+
+  getCommuneName(commune_id){
+    if(commune_id){
+      let type = this.communesList.find(x => x.id === commune_id);
+      return type.name
+    }
+
   }
 
 }

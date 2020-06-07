@@ -23,6 +23,7 @@
     "@angular/platform-browser": "~9.0.7",
     "@angular/platform-browser-dynamic": "~9.0.7",
     "@angular/router": "~9.0.7",
+    "@ng-select/ng-select": "^4.0.0",
     "angular-token": "^7.0.1",
     "chart.js": "^2.9.3",
     "ng2-charts": "^2.3.0",

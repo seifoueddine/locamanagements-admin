@@ -24,7 +24,7 @@
             WILAYA 
           </th>
           <td mat-cell *matCellDef="let slug">
-            {{slug.attributes.Wilaya }} </td>
+            {{ getWilayaName(slug?.attributes.Wilaya) }} </td>
         </ng-container>
 
 
@@ -34,7 +34,7 @@
             COMMUNE 
           </th>
           <td mat-cell *matCellDef="let slug">
-            {{slug.attributes.City }} </td>
+            {{getCommuneName(slug?.attributes.City) }} </td>
         </ng-container>
 
 
