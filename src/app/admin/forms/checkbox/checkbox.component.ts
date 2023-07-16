@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {UntypedFormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
 interface Food {
@@ -24,7 +24,7 @@ interface PokemonGroup {
 
 /** Error when invalid control is dirty, touched, or submitted. */
 class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -46,7 +46,7 @@ export class CheckboxComponent implements OnInit {
     { value: 'tacos-2', viewValue: 'Tacos' }
   ];
 
-  animalControl = new FormControl('', [Validators.required]);
+  animalControl = new UntypedFormControl('', [Validators.required]);
   animals: Animal[] = [
     { name: 'Dog', sound: 'Woof!' },
     { name: 'Cat', sound: 'Meow!' },
@@ -54,9 +54,9 @@ export class CheckboxComponent implements OnInit {
     { name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!' }
   ];
 
-  disableSelect = new FormControl(false);
+  disableSelect = new UntypedFormControl(false);
 
-  pokemonControl = new FormControl();
+  pokemonControl = new UntypedFormControl();
   pokemonGroups: PokemonGroup[] = [
     {
       name: 'Grass',
@@ -92,11 +92,11 @@ export class CheckboxComponent implements OnInit {
     }
   ];
 
-  toppings = new FormControl();
+  toppings = new UntypedFormControl();
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
 
-  selected2 = new FormControl('valid', [
+  selected2 = new UntypedFormControl('valid', [
     Validators.required,
     Validators.pattern('valid'),
   ]);

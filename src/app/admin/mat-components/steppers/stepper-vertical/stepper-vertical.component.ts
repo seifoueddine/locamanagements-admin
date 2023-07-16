@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-stepper-vertical',
@@ -8,10 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class StepperVerticalComponent implements OnInit {
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  firstFormGroup: UntypedFormGroup;
+  secondFormGroup: UntypedFormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: UntypedFormBuilder) {}
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({

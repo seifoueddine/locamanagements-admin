@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Users } from 'src/app/shared/models/users.model';
@@ -17,8 +17,8 @@ export class UserFormComponent implements OnInit {
   user: Users;
 
   isLinear = true;
-  slugFormGroup: FormGroup;
-  userFormGroup: FormGroup;
+  slugFormGroup: UntypedFormGroup;
+  userFormGroup: UntypedFormGroup;
 
   roles = [
     {value: 'super_admin', viewValue: 'super admin'},
@@ -27,7 +27,7 @@ export class UserFormComponent implements OnInit {
     {value: 'agent', viewValue: 'agent'}
   ];
   
-  constructor(private router: Router, private userService: UsersService, private formBuilder: FormBuilder,
+  constructor(private router: Router, private userService: UsersService, private formBuilder: UntypedFormBuilder,
     private snackBar: MatSnackBar, public dialogRef: MatDialogRef<UserFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private slugsService: SlugsService) {
     if (data) {

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { SlugsService } from 'src/app/services/slugs.service';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, UntypedFormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { wilayasCommunes } from 'src/environments/wilayasCommunes';
@@ -13,12 +13,12 @@ import { wilayasCommunes } from 'src/environments/wilayasCommunes';
 })
 export class SlugFormComponent implements OnInit {
   slug: any;
-  slugFormGroup: FormGroup;
+  slugFormGroup: UntypedFormGroup;
   slugId: any;
   wilayas: any;
   communes: any;
   communesSelected;
-  constructor(private router: Router, private slugService: SlugsService, private formBuilder: FormBuilder,
+  constructor(private router: Router, private slugService: SlugsService, private formBuilder: UntypedFormBuilder,
     private snackBar: MatSnackBar, public dialogRef: MatDialogRef<SlugFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     if (data) {
@@ -74,15 +74,15 @@ export class SlugFormComponent implements OnInit {
   }
 
   get name() {
-    return this.slugFormGroup.get('name') as FormControl;
+    return this.slugFormGroup.get('name') as UntypedFormControl;
   }
 
   get wilaya() {
-    return this.slugFormGroup.get('name') as FormControl;
+    return this.slugFormGroup.get('name') as UntypedFormControl;
   }
 
   get city() {
-    return this.slugFormGroup.get('name') as FormControl;
+    return this.slugFormGroup.get('name') as UntypedFormControl;
   }
 
 

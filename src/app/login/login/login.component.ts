@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 import { AngularTokenService } from 'angular-token';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -10,8 +10,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  formGroup: FormGroup;
-  constructor(public formBuilder: FormBuilder, private tokenService: AngularTokenService,
+  formGroup: UntypedFormGroup;
+  constructor(public formBuilder: UntypedFormBuilder, private tokenService: AngularTokenService,
     private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {

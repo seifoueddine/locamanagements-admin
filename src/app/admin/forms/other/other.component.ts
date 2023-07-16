@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  UntypedFormControl,
   Validators
 } from '@angular/forms';
 
@@ -12,11 +12,11 @@ import {
   styleUrls: ['./other.component.scss']
 })
 export class OtherComponent implements OnInit {
-  options: FormGroup;
-  email = new FormControl('', [Validators.required, Validators.email]);
+  options: UntypedFormGroup;
+  email = new UntypedFormControl('', [Validators.required, Validators.email]);
   hide = true;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: UntypedFormBuilder) {
     this.options = fb.group({
       hideRequired: false,
       floatLabel: 'auto'

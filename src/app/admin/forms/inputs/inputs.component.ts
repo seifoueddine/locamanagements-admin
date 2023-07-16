@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormControl,
+  UntypedFormControl,
   FormGroupDirective,
   NgForm,
   Validators
@@ -10,7 +10,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 /** Error when invalid control is dirty, touched, or submitted. */
 class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
-    control: FormControl | null,
+    control: UntypedFormControl | null,
     form: FormGroupDirective | NgForm | null
   ): boolean {
     const isSubmitted = form && form.submitted;
@@ -28,7 +28,7 @@ class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./inputs.component.scss']
 })
 export class InputsComponent implements OnInit {
-  emailFormControl = new FormControl('', [
+  emailFormControl = new UntypedFormControl('', [
     Validators.required,
     Validators.email
   ]);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
@@ -13,13 +13,13 @@ interface User {
   styleUrls: ['./auto-complete.component.scss']
 })
 export class AutoCompleteComponent implements OnInit {
-  myControl = new FormControl();
+  myControl = new UntypedFormControl();
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
-  myControl2 = new FormControl();
+  myControl2 = new UntypedFormControl();
   options2: User[] = [{ name: 'Mary' }, { name: 'Shelley' }, { name: 'Igor' }];
   filteredOptions2: Observable<User[]>;
-  myControl3 = new FormControl();
+  myControl3 = new UntypedFormControl();
 
   constructor() {}
 

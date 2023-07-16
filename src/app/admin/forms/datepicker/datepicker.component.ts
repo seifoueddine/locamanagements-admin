@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
 
 @Component({
@@ -9,7 +9,7 @@ import { MatDatepicker } from '@angular/material/datepicker';
 })
 export class DatepickerComponent implements OnInit {
   startDate = new Date(1990, 0, 1);
-  date = new FormControl(this.getMonthYearString(new Date()));
+  date = new UntypedFormControl(this.getMonthYearString(new Date()));
   minDate = new Date();
   maxDate = new Date();
   constructor() {}

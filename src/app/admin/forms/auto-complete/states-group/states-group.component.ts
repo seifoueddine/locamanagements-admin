@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 
@@ -19,7 +19,7 @@ export const _filter = (opt: string[], value: string): string[] => {
   styleUrls: ['./states-group.component.scss']
 })
 export class StatesGroupComponent implements OnInit {
-  stateForm: FormGroup = this.fb.group({
+  stateForm: UntypedFormGroup = this.fb.group({
     stateGroup: ''
   });
 
@@ -122,7 +122,7 @@ export class StatesGroupComponent implements OnInit {
 
   stateGroupOptions: Observable<StateGroup[]>;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: UntypedFormBuilder) {}
 
   ngOnInit() {
     this.stateGroupOptions = this.stateForm.get('stateGroup').valueChanges.pipe(
