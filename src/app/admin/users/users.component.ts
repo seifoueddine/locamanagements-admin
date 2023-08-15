@@ -48,6 +48,8 @@ export class UsersComponent implements OnInit {
         this.elementsLength = +res.headers.get('X-Total-Count');
         const resp =  res.body;
         this.dataSource.data = resp.data;
+        console.log(this.dataSource.data );
+        
         this.slugs = resp.included;
       }, error => {
         this.snackBar.open(error.error.message, 'close', { verticalPosition: 'top',  horizontalPosition: 'right' });

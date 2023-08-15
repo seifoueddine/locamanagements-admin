@@ -25,6 +25,7 @@ export class SlugsComponent implements OnInit {
   direction = 'desc';
   pageIndex = 1;
   displayedColumns = ['id', 'name', 'wilaya', 'city', 'subscription_type', 'subscription_end', 'action'];
+  displayedColumnst = ['id', 'name'];
   dataSource = new MatTableDataSource<Slugs>();
   elementsLength = 0;
   pageSize = 10;

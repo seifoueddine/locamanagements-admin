@@ -121,6 +121,44 @@
       </mat-paginator>
       <br>
 
+
+      <div class="example-container mat-elevation-z8">
+        <!-- <div class="example-loading-shade"
+             *ngIf="isLoadingResults || isRateLimitReached">
+          <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+          <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+            GitHub's API rate limit has been reached. It will be reset in one minute.
+          </div>
+        </div> -->
+      
+        <div class="example-table-container">
+      
+          <table mat-table [dataSource]="dataSource" class="example-table"
+                 matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
+            <!-- Number Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>ID</th>
+              <td mat-cell *matCellDef="let row">{{row.Id}}</td>
+            </ng-container>
+      
+            <!-- Title Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let row">{{row.attributes.Name}}</td>
+            </ng-container>
+      
+      
+            <tr mat-header-row *matHeaderRowDef="displayedColumnst"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnst;"></tr>
+          </table>
+        </div>
+      
+        <mat-paginator [length]="elementsLength" [pageSize]="10" aria-label="Select page of GitHub search results"></mat-paginator>
+      </div>
+
+
+
+
     </mat-card>
   
   </div>
