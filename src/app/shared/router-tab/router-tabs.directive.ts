@@ -5,10 +5,11 @@ import {
   OnDestroy,
   QueryList
 } from '@angular/core';
-import { MatTabGroup } from '@angular/material/tabs';
+
 import { Subscription } from 'rxjs';
 import { NavigationEnd, Router } from '@angular/router';
 import { RouterTab } from './router-tab.directive';
+import { MatTabGroup } from '@angular/material/tabs';
 
 @Directive({
   selector: '[routerTabs]'

@@ -1,16 +1,19 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+
 import { Slugs } from 'src/app/shared/models/slugs.model';
 import { MatSort } from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
+
 import { Router } from '@angular/router';
 import { SlugsService } from 'src/app/services/slugs.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
+
 import { HttpResponse } from '@angular/common/http';
 import { SlugFormComponent } from './slug-form/slug-form.component';
 import * as moment from 'moment';
 import { wilayasCommunes } from 'src/environments/wilayasCommunes';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 //import wilayas from 'src/app/shared/json-data/wilayas.json';
 @Component({
   selector: 'app-slugs',

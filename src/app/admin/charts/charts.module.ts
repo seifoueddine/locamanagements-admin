@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatCardModule } from '@angular/material/card';
+
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ChartsModule as Ng2Charts } from 'ng2-charts';
 
@@ -14,15 +14,16 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { DataService } from './data.service';
 import { PolarChartComponent } from './polar-chart/polar-chart.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   imports: [
     CommonModule,
     ChartsRoutingModule,
-    MatCardModule,
     MatGridListModule,
     FlexLayoutModule,
-    Ng2Charts
+    Ng2Charts,
+    MatCardModule
   ],
   declarations: [
     HomeComponent,

@@ -31,12 +31,12 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <mat-chip-list>
+      <mat-chip-listbox>
         <mat-chip>One fish</mat-chip>
         <mat-chip>Two fish</mat-chip>
         <mat-chip color="primary" selected>Primary fish</mat-chip>
         <mat-chip color="accent" selected>Accent fish</mat-chip>
-      </mat-chip-list>
+      </mat-chip-listbox>
     </mat-card-content>
   </mat-card>
 
@@ -49,14 +49,14 @@
     </mat-card-header>
     <mat-card-content>
       <mat-form-field class="w-100">
-        <mat-chip-list #chipList>
-          <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable" (removed)="remove(fruit)">
+        <mat-chip-listbox #chipList>
+          <mat-chip *ngFor="let fruit of fruits" (click)="toggleSelected(fruit)" [removable]="removable" (removed)="remove(fruit)">
             {{fruit.name}}
             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
           </mat-chip>
           <input placeholder="New fruit..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
             (matChipInputTokenEnd)="add($event)">
-        </mat-chip-list>
+        </mat-chip-listbox>
       </mat-form-field>
     </mat-card-content>
   </mat-card>

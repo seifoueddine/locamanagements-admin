@@ -1,8 +1,8 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { MatChipInputEvent } from '@angular/material/chips';
+import { MatLegacyAutocompleteSelectedEvent as MatAutocompleteSelectedEvent } from '@angular/material/legacy-autocomplete';
+
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
@@ -36,7 +36,7 @@ export class ChipsAutoCompleteComponent implements OnInit {
 
   ngOnInit() {}
 
-  add(event: MatChipInputEvent): void {
+  add(event: any): void {
     const input = event.input;
     const value = event.value;
 
@@ -72,4 +72,14 @@ export class ChipsAutoCompleteComponent implements OnInit {
       fruit => fruit.toLowerCase().indexOf(filterValue) === 0
     );
   }
+  selectedFruits: string[] = [];
+
+toggleSelected(fruit: string): void {
+  const index = this.selectedFruits.indexOf(fruit);
+  if (index >= 0) {
+    this.selectedFruits.splice(index, 1);
+  } else {
+    this.selectedFruits.push(fruit);
+  }
+}
 }

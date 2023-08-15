@@ -1,15 +1,17 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { Users } from 'src/app/shared/models/users.model';
-import { MatTableDataSource } from '@angular/material/table';
+
 import { MatSort } from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
+
 import { HttpResponse } from '@angular/common/http';
 import { UserFormComponent } from './user-form/user-form.component';
 import { environment } from 'src/environments/environment';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-users',

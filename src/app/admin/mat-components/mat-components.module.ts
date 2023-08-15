@@ -3,28 +3,20 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
+
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatChipsModule } from '@angular/material/chips';
+
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatTooltipModule } from '@angular/material/tooltip';
+
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatDialogModule } from '@angular/material/dialog';
+
 
 import { MatComponentsRoutingModule } from './mat-components-routing.module';
 import { HomeComponent } from './home/home.component';
@@ -50,7 +42,21 @@ import { StepperOverviewComponent } from './steppers/stepper-overview/stepper-ov
 import { StepperVerticalComponent } from './steppers/stepper-vertical/stepper-vertical.component';
 import { BasicExpansionPanelComponent } from './panels/basic-expansion-panel/basic-expansion-panel.component';
 import { ExpansionPanelAccordionComponent } from './panels/expansion-panel-accordion/expansion-panel-accordion.component';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
     imports: [
@@ -59,7 +65,6 @@ import { MatTabsModule } from '@angular/material/tabs';
         ReactiveFormsModule,
         MatComponentsRoutingModule,
         FlexLayoutModule,
-        MatCardModule,
         MatFormFieldModule,
         MatInputModule,
         MatAutocompleteModule,
@@ -70,18 +75,20 @@ import { MatTabsModule } from '@angular/material/tabs';
         MatProgressBarModule,
         MatProgressSpinnerModule,
         MatRadioModule,
-        MatSliderModule,
         MatSnackBarModule,
         MatIconModule,
         MatExpansionModule,
-        MatChipsModule,
         MatBottomSheetModule,
         MatTooltipModule,
         MatDividerModule,
         MatDialogModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatTabsModule
+        MatTabsModule,
+        MatCardModule,
+        MatListModule,
+        MatChipsModule,
+        MatAutocompleteModule,
     ],
     declarations: [
         HomeComponent,

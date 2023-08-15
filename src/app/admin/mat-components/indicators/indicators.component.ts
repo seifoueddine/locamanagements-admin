@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material/chips';
+
 
 interface Fruit {
   name: string;
@@ -21,7 +21,7 @@ export class IndicatorsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-  add(event: MatChipInputEvent): void {
+  add(event: any): void {
     const input = event.input;
     const value = event.value;
 
@@ -41,4 +41,14 @@ export class IndicatorsComponent implements OnInit {
       this.fruits.splice(index, 1);
     }
   }
+
+  selectedFruits: string[] = [];
+toggleSelected(fruit: string): void {
+  const index = this.selectedFruits.indexOf(fruit);
+  if (index >= 0) {
+    this.selectedFruits.splice(index, 1);
+  } else {
+    this.selectedFruits.push(fruit);
+  }
+}
 }

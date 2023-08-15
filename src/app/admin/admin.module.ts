@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
+
 import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu';
+
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -14,6 +12,14 @@ import { TopNavComponent } from './layout/top-nav/top-nav.component';
 import { SideNavComponent } from './layout/side-nav/side-nav.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularTokenModule } from 'angular-token';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   imports: [
@@ -25,7 +31,7 @@ import { AngularTokenModule } from 'angular-token';
     MatIconModule,
     MatInputModule,
     MatMenuModule,
-    MatListModule,
+    MatGridListModule,
    // ReactiveFormsModule,
    AngularTokenModule.forRoot({
     apiBase:                   'http://localhost:3000',
@@ -57,6 +63,10 @@ import { AngularTokenModule } from 'angular-token';
 
     
   }),
+  MatCardModule,
+  MatListModule,
+  MatChipsModule,
+  MatAutocompleteModule
     
   ],
   providers:    [ AngularTokenModule ],
